@@ -39,7 +39,7 @@ while True:
             filehandle.write('%s\n' % listitem["link"])
 
     for post in unpublished_posts:
-        title = post["title"]["rendered"]
+        title = html.unescape(post["title"]["rendered"])
         link = post["link"]
         time.sleep(1)
         api.update_status(f"Check out this new article{title} {link}")
