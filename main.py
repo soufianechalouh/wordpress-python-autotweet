@@ -17,8 +17,6 @@ def create_api():
     # Create API object
     return tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-#
-api = create_api()
 
 def main():
     while True:
