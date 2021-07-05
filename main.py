@@ -17,6 +17,8 @@ def create_api():
     # Create API object
     return tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
+#
+api = create_api()
 
 def main():
     while True:
@@ -44,7 +46,8 @@ def main():
 
             link = post["link"]
             time.sleep(1)
-            api.update_status(f"Hot deal:! {title} {link}")
+            status = f"{title} {link}"
+            api.update_status(status)
             time.sleep(60)
 
 
