@@ -2,6 +2,7 @@ import sqlite3
 
 
 class DBInstance:
+    """db interactions manager"""
     def __init__(self):
         self.conn = sqlite3.connect("posts.db")
         self.c = self.conn.cursor()
@@ -30,10 +31,3 @@ class DBInstance:
 
     def close_connection(self):
         self.conn.close()
-
-
-if __name__ == '__main__':
-    db_instance = DBInstance()
-    db_instance.add_post("https://test.mytest.com")
-    posts = db_instance.get_all_posts()
-    db_instance.close_connection()
